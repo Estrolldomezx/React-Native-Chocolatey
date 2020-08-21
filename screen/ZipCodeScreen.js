@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View , Text, StyleSheet} from 'react-native'
+import { FlatList, View , Text, StyleSheet, Image} from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
@@ -15,9 +15,11 @@ const ZipItem = ({place, code, navigation}) => (
     <TouchableHighlight onPress ={() => {
         navigation.navigate('Weather' , {zipCode: code})
     }}>
-        <View style = {styles.ZipItem}>
-            <Text>{place}</Text>
-            <Text>{code}</Text>
+        <View style={styles.Text, styles.background}>
+            <View style={styles.zipItem}>
+                    <Text style={{ fontSize: 27, color: 'white' }}>{place}</Text>
+                    <Text style={{ fontSize: 20, color: 'white' }}>{code}</Text>
+            </View>
         </View>
     </TouchableHighlight>
 )
@@ -33,15 +35,33 @@ export default function ZipCodeScreen(){
 }
 
 const styles = StyleSheet.create({
-    ZipItem: {
-        flex: 1,
+    zipItem: { 
+        alignItems: 'center', 
+        paddingTop: 10, 
+        paddingBottom: 10,
+
+        
+    },
+
+    Text: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    ZipPlace: {
+        justifyContent: 'center',
+        alignItems: 'center',
         flex: 1,
+        width: '100%',
+        height: '10%'
     },
-    zipCode: {
-        flex: 1,
+    background: {
+        backgroundColor: '#FF6666',
+        marginLeft: 20,
+        marginRight: 20,
+        margin: 3,
+        borderRadius: 50,
     },
-})
+
+    container: { 
+        flex: 1, 
+        alignItems: 'center', 
+        width: '100%', 
+        height: '100%' },
+});
