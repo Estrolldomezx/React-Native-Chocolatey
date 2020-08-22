@@ -4,15 +4,15 @@ import { TouchableHighlight } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 import Carousel from 'react-native-snap-carousel';
 import { scrollInterpolator, animatedStyles } from '../utils/animations';
-import pic1 from '../img/thai.jpg'
+//import pic1 from '../img/thai.jpg'
 
 
 const availableZipItems = [
-  { place: 'Hatyai'       , code: '90110' },
-  { place: 'Trang'        , code: '92000' },
-  { place: 'Chiangmai'    , code: '50000' },
-  { place: 'Khonkaen'     , code: '40000' },
-  { place: 'Chonburi'     , code: '20000' }
+  { place: 'Hatyai'       , code: '90110', pic:require('../img/hy.jpg') },
+  { place: 'Trang'        , code: '92000', pic:require('../img/trung.jpg')},
+  { place: 'Chiangmai'    , code: '50000', pic:require('../img/cgm.jpg')},
+  { place: 'Khonkaen'     , code: '40000', pic:require('../img/kk.jpg')},
+  { place: 'Chonburi'     , code: '20000', pic:require('../img/chon.jpg')}
  ]
 
 const ZipItem = ({place, code, pic, navigation}) =>(
@@ -20,8 +20,8 @@ const ZipItem = ({place, code, pic, navigation}) =>(
         navigation.navigate('Weather' , {zipCode: code})
     }}>
       <View>
-        <View>
-            <ImageBackground source={pic1} style = {styles.imgs}/> 
+        <View style = {styles.zipCode}>
+            <ImageBackground source={pic} style = {styles.imgs}/> 
             <Text style={styles.base}>{place}</Text>
             <Text style={styles.base2}>{code}</Text>
         </View> 
@@ -36,8 +36,8 @@ export default function ZipCodeScreen(){
 
     return(
      <SafeAreaView style={{flex: 1, 
-                          backgroundColor:'#FF6666',
-                          paddingTop: 150, }}>
+                          backgroundColor:'#000033',
+                          paddingTop: 70, }}>
             <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', }}>
                 <Carousel
                   layout={'stack'} layoutCardOffset={`18`}
@@ -52,7 +52,7 @@ export default function ZipCodeScreen(){
                   useScrollView={true}
 
                   sliderWidth={200}
-                  itemWidth={322}
+                  itemWidth={310}
                   />
             </View>
           </SafeAreaView>
@@ -63,18 +63,20 @@ export default function ZipCodeScreen(){
 
 
 const styles = StyleSheet.create({
+
     base: { 
-        backgroundColor:'floralwhite',
+        backgroundColor:'#7B68EE',
         height: 70,
         paddingTop: 15,
         paddingLeft: 25,
         marginLeft: 40,
         marginRight: 0, 
+        color: 'white',
         fontSize: 40, 
         fontWeight: 'bold'
     },
     base2: { 
-        backgroundColor:'floralwhite',
+        backgroundColor:'#7B68EE',
         height: -30,
         paddingTop: -30,
         paddingLeft: 25,
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
         marginLeft: 40,
         marginRight: 0, 
         fontSize: 25, 
+        color: 'white',
     },
 
     imgs:{
@@ -89,7 +92,7 @@ const styles = StyleSheet.create({
         paddingLeft: 25,
         marginLeft: 40,
         marginRight: 0, 
-        width:290,
+        width:270,
         height:200,
     },
     Text: {

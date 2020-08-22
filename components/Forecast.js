@@ -1,44 +1,53 @@
 import React from 'react'
-import { StyleSheet, View, Text, ImageBackground } from 'react-native'
+import { StyleSheet, View, Text, ImageBackground, Image } from 'react-native'
 
 
 
 export default function Forecast(props) {
 
     let x = "";
+    let nameProvince =""; 
     if (props.name == "Hat Yai") {
         x = require("../img/hy.jpg");
+        nameProvince = "Hat Yai";
     }
     if (props.name == "Trang") {
         x = require("../img/trung.jpg");
+        nameProvince = "Trang";
     }
-    if (props.name == "Chaingmai") {
+    if (props.name == "Chiang Mai") {
         x = require("../img/cgm.jpg");
+        nameProvince = "Chian gmai";
     }
-    if (props.name == "Khonkaen'") {
+    if (props.name == "Khon Kaen") {
         x = require("../img/kk.jpg");
+        nameProvince = "Khon kaen";
     }
-    if (props.name == "Khonkaen'") {
-        x = require("../img/kk.jpg");
+    if (props.name == "Chaophraya Surasak") { //
+        x = require("../img/chon.jpg");
+        nameProvince = "Chonburi";
     }
 
     return (
-        <ImageBackground source={x} style={styles.backdrop}>
         <View>
-            {/* <Text>{props.main}</Text> */}
-            <Text style = {[styles.fontSize2, styles.white, styles.textAlign]}>{props.name}</Text>
-            <Text style = {[styles.fontSize2, styles.white, styles.textAlign]}>{props.description}</Text>
-            <Text style = {[styles.fontSize, styles.white, styles.textAlign]}>{props.temp} °C</Text>
-            
+            <View >
+                <Text style = {[styles.fontSize2, styles.white, styles.textAlign]}>{nameProvince}</Text>
+                <Text style = {[styles.fontSize2, styles.white, styles.textAlign]}>{props.description}</Text>
+                <Text style = {[styles.fontSize, styles.white, styles.textAlign]}>{props.temp} °C</Text>
+                <Text style = {[styles.fontSize, styles.white, styles.textAlign]}></Text>
+            </View>
+            <Image source={x} style = {styles.backdrop}/>
         </View>
-        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     backdrop:{
-        width: '100%',
-        height: '100%',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        width: 360,
+        height: 200,
     },
 
     white:{
@@ -52,6 +61,13 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     textAlign:{
+        //paddingTop: 50,
+        textAlign: 'center',
+        textAlignVertical: 'auto'
+    },
+    textAlign2:{
+
+        paddingTop: 50,
         textAlign: 'center',
         textAlignVertical: 'auto'
     }
