@@ -28,17 +28,17 @@ export default function Weather(props) {
     }, [props.zipCode])
 
     return (
-        <View style={styles.backdrop}>
-            {/* <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}> */}
-                <View style = {styles.opacity}>
-                    {/* <Text style = {[styles.white, styles.fontSize, styles.textAlign]}>Main</Text> */}
-                    <Forecast {...forecastInfo} />
-                </View>
-                {/* <View style = {styles.opacity2}></View> */}
-            {/* </ImageBackground> */}
-        </View>
+            <View>
+                <ImageBackground source={require('../img/1.jpg')} style={styles.backdrop2}>
+                    <View >
+                         <Text style = {[styles.white, styles.fontSize, styles.textAlign]}></Text> 
+                         <Forecast {...forecastInfo} />
+                    </View>
+                </ImageBackground>
+            </View>
     );
-   }
+}
+
 const styles = StyleSheet.create({
     opacity:{
         flex: 2,
@@ -47,17 +47,22 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center'
- 
     },
     opacity2:{
         flex: 3,
         opacity: 0,
         backgroundColor: 'white'
     },
-
     backdrop: {
+        alignItems: 'center',
         width: '100%',
         height: '100%',
+    },
+    backdrop2: {
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+        opacity: 1,
     },
     white:{
         color: 'white'
@@ -73,8 +78,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical: 'auto'
     }
-
-
 });
 
    

@@ -1,15 +1,13 @@
 import React from 'react'
-import { FlatList, View , Text, StyleSheet, SafeAreaView, ImageBackground} from 'react-native'
+import { View , Text, StyleSheet, SafeAreaView, ImageBackground} from 'react-native'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 import Carousel from 'react-native-snap-carousel';
 import { scrollInterpolator, animatedStyles } from '../utils/animations';
-//import pic1 from '../img/thai.jpg'
-
 
 const availableZipItems = [
   { place: 'Hatyai'       , code: '90110', pic:require('../img/hy.jpg') },
-  { place: 'Trang'        , code: '92000', pic:require('../img/trung.jpg')},
+  { place: 'Trang'        , code: '92000', pic:require('../img/trung2.jpg')},
   { place: 'Chiangmai'    , code: '50000', pic:require('../img/cgm.jpg')},
   { place: 'Khonkaen'     , code: '40000', pic:require('../img/kk.jpg')},
   { place: 'Chonburi'     , code: '20000', pic:require('../img/chon.jpg')}
@@ -27,9 +25,7 @@ const ZipItem = ({place, code, pic, navigation}) =>(
         </View> 
       </View>
       </TouchableHighlight>
-
 )
-
 
 export default function ZipCodeScreen(){
     const navigation = useNavigation()
@@ -37,7 +33,7 @@ export default function ZipCodeScreen(){
     return(
      <SafeAreaView style={{flex: 1, 
                           backgroundColor:'#000033',
-                          paddingTop: 70, }}>
+                          paddingTop: 130, }}>
             <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', }}>
                 <Carousel
                   layout={'stack'} layoutCardOffset={`18`}
@@ -59,8 +55,6 @@ export default function ZipCodeScreen(){
   
     )
 }
-
-
 
 const styles = StyleSheet.create({
 
@@ -95,27 +89,13 @@ const styles = StyleSheet.create({
         width:270,
         height:200,
     },
-    Text: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-        width: '100%',
-        height: '10%'
-    },
+
     background: {
         backgroundColor: '#FF6666',
         marginLeft: 20,
         marginRight: 20,
         margin: 3,
         borderRadius: 50,
-    },
-
-    container: { 
-        flex: 1, 
-        alignItems: 'center', 
-        width: '100%', 
-        height: '100%'
     },
 
 });

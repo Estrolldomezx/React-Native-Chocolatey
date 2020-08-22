@@ -12,12 +12,12 @@ export default function Forecast(props) {
         nameProvince = "Hat Yai";
     }
     if (props.name == "Trang") {
-        x = require("../img/trung.jpg");
+        x = require("../img/trung2.jpg");
         nameProvince = "Trang";
     }
     if (props.name == "Chiang Mai") {
         x = require("../img/cgm.jpg");
-        nameProvince = "Chian gmai";
+        nameProvince = "Chiang mai";
     }
     if (props.name == "Khon Kaen") {
         x = require("../img/kk.jpg");
@@ -30,11 +30,11 @@ export default function Forecast(props) {
 
     return (
         <View>
-            <View >
-                <Text style = {[styles.fontSize2, styles.white, styles.textAlign]}>{nameProvince}</Text>
-                <Text style = {[styles.fontSize2, styles.white, styles.textAlign]}>{props.description}</Text>
-                <Text style = {[styles.fontSize, styles.white, styles.textAlign]}>{props.temp} °C</Text>
-                <Text style = {[styles.fontSize, styles.white, styles.textAlign]}></Text>
+            <View>
+                <Text style = {[styles.fontSize3, styles.bigBrown, styles.textAlign]}>{nameProvince}</Text>
+                <Text style = {[styles.fontSize2, styles.smallBrown, styles.textAlign]}>"{props.description}"</Text>
+                <Text style = {[styles.fontSize, styles.black, styles.textAlign]}>{props.temp} °C</Text>
+                <Text style = {[styles.fontSize, styles.bigBrown, styles.textAlign]}></Text>
             </View>
             <Image source={x} style = {styles.backdrop}/>
         </View>
@@ -45,13 +45,18 @@ const styles = StyleSheet.create({
     backdrop:{
         justifyContent: 'center',
         flexDirection: 'column',
-        alignItems: 'flex-end',
-        width: 360,
+        alignItems: 'center',
+        width: 260,
         height: 200,
     },
-
-    white:{
-        color: 'white'
+    bigBrown:{
+        color: '#990000'
+    },
+    smallBrown:{
+        color: '#8B4513'
+    },
+    black:{
+        color: '#000000'
     },
     fontSize:{
         fontWeight: 'bold',
@@ -60,18 +65,17 @@ const styles = StyleSheet.create({
     fontSize2:{
         fontSize: 20
     },
+    fontSize3:{
+        fontSize: 50
+    },
     textAlign:{
-        //paddingTop: 50,
         textAlign: 'center',
         textAlignVertical: 'auto'
     },
     textAlign2:{
-
         paddingTop: 50,
         textAlign: 'center',
         textAlignVertical: 'auto'
     }
-
-
 });
    
